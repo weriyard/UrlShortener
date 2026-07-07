@@ -123,6 +123,8 @@ mypy urlshortener --strict
 4. W systemie produkcyjnym `SECRET_KEY` i inne klucze/tokeny itp. powinny być wstrzykiwane przez zmienne środowiskowe
   środowiska uruchomieniowego zamiast trzymania ich w repozytorium kodu.
 
+5. Uruchomić aplikację w kontenerze Docker.  
+
 ## Testy
 
 ```bash
