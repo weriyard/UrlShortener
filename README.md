@@ -104,6 +104,25 @@ cd urlshortener
 mypy urlshortener --strict
 ```
 
+## Inne rozważane możliwości (niezaimplementowane)
+
+1. Uzyskanie oryginalnego linka na podstawie skróconego można by uzyskać na inne sposoby
+- `GET /shrt/links/resolve/?url=<cały short link>` — serwer wycina kod z końca
+  ścieżki i zwraca `{"original_url": ...}`.
+- `POST /shrt/links/resolve/` z ciałem `{"short_link": "..."}` — omija problem
+  URL-encodingu pełnego URL-a w query paramie.
+
+2. Samą aplikację "skracacza" linków można by rozbudować o dodatkowe funkcje, np.:
+- statystyki kliknięć (ile razy dany link został użyty),
+- rozważyć czy wklejenie tego samego długiego linku powinno zwracać już raz wygenerowany short link
+
+3. Dla zapewnienia wysokiej wydajności w produkcji można by rozważyć:
+- cache w Redisie dla mapowania short link → original URL,
+- użycie produkcyjnej bazy danych typu PostgreSQL zamiast SQLite.
+
+4. W systemie produkcyjnym `SECRET_KEY` i inne klucze/tokeny itp. powinny być wstrzykiwane przez zmienne środowiskowe
+  środowiska uruchomieniowego zamiast trzymania ich w repozytorium kodu.
+
 ## Testy
 
 ```bash
