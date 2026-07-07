@@ -6,6 +6,7 @@ Prosty skracacz URL-i oparty o Django + Django REST Framework.
 ## Dodatkowe założenia:
 - dla kolejnych wywołań API generowany jest nowy short link nawet dla tego samego oryginalnego URL-a
 - brak statystyk kliknięć itp.
+- użycie `mypy` do statycznej analizy typów w Pythonie
 
 ## Uruchomienie aplikacji
 
@@ -93,6 +94,15 @@ curl http://localhost:8000/shrt/links/I2iMRRK/
 ```
 
 Uwaga: tutaj wymagany jest **sam kod** (`I2iMRRK`), a nie cały link.
+
+
+## Kontrola typów - `mypy`
+
+
+```shell
+cd urlshortener
+mypy urlshortener --strict
+```
 
 ## Testy
 
