@@ -26,7 +26,7 @@ class ShortLinkCreateView(generics.CreateAPIView[ShortLink]):
     def perform_create(self, serializer: BaseSerializer[Any]) -> None:
         for _ in range(5):
             try:
-                # savepoint for each try - when an IntegrityError occur
+                # savepoint for each try - If an IntegrityError occurs
                 # transaction is broken, without a rollback the next
                 # save() would fail
                 with transaction.atomic():

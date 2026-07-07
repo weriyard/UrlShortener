@@ -3,6 +3,8 @@
 Prosty skracacz URL-i oparty o Django + Django REST Framework.
 
 
+`https://www.django-rest-framework.org/api-guide/viewsets/#example_1` -> `http://127.0.0.1:8000/shrt/bJfbJ6H/`
+
 ## Dodatkowe założenia:
 - dla kolejnych wywołań API generowany jest nowy short link nawet dla tego samego oryginalnego URL-a
 - brak statystyk kliknięć itp.
